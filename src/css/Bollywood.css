@@ -1,0 +1,260 @@
+.bollywood-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+/* LEFT MAIN CONTENT */
+.bollywood-main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* RIGHT SIDEBAR */
+.bollywood-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* TITLE */
+.bollywood-title {
+    grid-column: 1 / -1;
+    text-align: left;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* CARDS */
+.bollywood-card {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    transition: 0.3s ease;
+}
+
+.bollywood-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* IMAGE */
+.bollywood-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* TEXT CONTENT */
+.bollywood-card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.bollywood-card-title {
+    font-size: 18px;
+    margin-bottom: 6px;
+    color: #222;
+}
+
+.bollywood-description {
+    font-size: 13px;
+    color: #555;
+}
+
+/* SIDEBAR CARDS (BIG IMAGE) */
+.sidebar-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+}
+
+.sidebar-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.sidebar-card p {
+    font-size: 12px;
+    padding: 10px;
+    color: #555;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .bollywood-container {
+        grid-template-columns: 1fr;
+    }
+
+    .bollywood-card {
+        flex-direction: column;
+    }
+
+    .bollywood-image {
+        width: 100%;
+        height: 180px;
+    }
+}
+.bollywood-container {
+    display: grid;
+    grid-template-columns: 2.5fr 1fr;
+    gap: 30px;
+    padding: 30px;
+    background: #fafafa;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* TITLE */
+.bollywood-title {
+    grid-column: 1 / -1;
+    font-size: 32px;
+    font-weight: 700;
+    color: #111;
+    border-left: 5px solid #ff4d4d;
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
+
+/* LEFT SIDE */
+.bollywood-main {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+/* CARD */
+.bollywood-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    background: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+    padding: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.bollywood-card:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* IMAGE */
+.bollywood-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* CONTENT */
+.bollywood-card-content {
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+}
+
+.bollywood-card-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #111;
+    margin-bottom: 8px;
+}
+
+.bollywood-description {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+/* RIGHT SIDEBAR */
+.bollywood-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* SIDEBAR HEADING */
+.sidebar-heading {
+    font-size: 18px;
+    font-weight: 600;
+    color: #ff4d4d;
+}
+
+/* SIDEBAR CARD */
+.sidebar-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.sidebar-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: 0.3s;
+}
+
+.sidebar-card:hover img {
+    transform: scale(1.1);
+}
+
+/* OVERLAY EFFECT */
+.sidebar-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+}
+
+/* TEXT OVER IMAGE */
+.sidebar-card p {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    color: #fff;
+    font-size: 14px;
+    z-index: 2;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .bollywood-container {
+        grid-template-columns: 1fr;
+        padding: 15px;
+    }
+
+    .bollywood-main {
+        grid-template-columns: 1fr;
+    }
+
+    .bollywood-card {
+        flex-direction: column;
+    }
+
+    .bollywood-image {
+        width: 100%;
+        height: 200px;
+    }
+}
