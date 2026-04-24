@@ -1,0 +1,541 @@
+/* Modern, Premium Blog Styling */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --card-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: #0f172a;
+  color: #f8fafc;
+  min-height: 100vh;
+}
+
+/* Navbar Enhancement */
+.navbar-container {
+  background: rgba(15, 23, 42, 0.9) !important;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--glass-border);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 1rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-brand a {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 2px;
+}
+
+.nav-brand span {
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+ul {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul li a {
+  color: #94a3b8;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: var(--transition-smooth);
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+ul li a:hover {
+  color: #fff;
+}
+
+ul li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary-gradient);
+  transition: var(--transition-smooth);
+}
+
+ul li a:hover::after {
+  width: 100%;
+}
+
+/* Container Styles */
+.bollywood-container,
+.Technology-container,
+.Hollywood-container,
+.Fitness-container,
+.Food-container,
+.home-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* Title Styles */
+.bollywood-title,
+.Technology-title,
+.Hollywood-title,
+.Fitness-title,
+.Food-title,
+.home-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.02em;
+}
+
+/* Card Styles - Premium Glassmorphism */
+.bollywood-card,
+.Technology-card,
+.Hollywood-card,
+.Fitness-card,
+.Food-card {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 2rem;
+  background: var(--glass-bg);
+  backdrop-filter: blur(4px);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  padding: 1.5rem;
+  transition: var(--transition-smooth);
+  overflow: hidden;
+  position: relative;
+}
+
+.bollywood-card:hover,
+.Technology-card:hover,
+.Hollywood-card:hover,
+.Fitness-card:hover,
+.Food-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: rgba(168, 85, 247, 0.4);
+  box-shadow: var(--card-shadow);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Image Styles */
+.bollywood-image,
+.Technology-image,
+.Hollywood-image,
+.Fitness-image,
+.Food-image {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 16px;
+  transition: var(--transition-smooth);
+}
+
+.bollywood-card:hover .bollywood-image,
+.Technology-card:hover .Technology-image,
+.Hollywood-card:hover .Hollywood-image,
+.Fitness-card:hover .Fitness-image,
+.Food-card:hover .Food-image {
+  transform: scale(1.05);
+}
+
+/* Card Content */
+.bollywood-card-title,
+.Technology-card-title,
+.Hollywood-card-title,
+.Fitness-card-title,
+.Food-card-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #f8fafc;
+  line-height: 1.3;
+}
+
+.bollywood-description,
+.Technology-description,
+.Hollywood-description,
+.Fitness-description,
+.Food-description {
+  color: #94a3b8;
+  line-height: 1.8;
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .bollywood-card,
+  .Technology-card,
+  .Hollywood-card,
+  .Fitness-card,
+  .Food-card {
+    grid-template-columns: 1fr;
+  }
+  
+  .bollywood-image,
+  .Technology-image,
+  .Hollywood-image,
+  .Fitness-image,
+  .Food-image {
+    height: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .bollywood-title,
+  .Technology-title,
+  .Hollywood-title,
+  .Fitness-title,
+  .Food-title {
+    font-size: 2.5rem;
+  }
+  
+  ul {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* Home Page Specific Styles */
+.hero-subtitle {
+  text-align: center;
+  font-size: 1.4rem;
+  color: #94a3b8;
+  margin-top: -2rem;
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: #fff;
+  border-left: 5px solid #a855f7;
+  padding-left: 1.5rem;
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.featured-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: var(--transition-smooth);
+}
+
+.featured-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(168, 85, 247, 0.4);
+}
+
+.featured-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.featured-content {
+  padding: 1.5rem;
+}
+
+.category-tag {
+  background: var(--primary-gradient);
+  padding: 0.2rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.featured-card-title {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.featured-description {
+  font-size: 0.95rem;
+  color: #94a3b8;
+  margin-bottom: 1.5rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.read-more {
+  color: #a855f7;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: 0.3s;
+}
+
+.read-more:hover {
+  gap: 0.8rem;
+  color: #ec4899;
+}
+
+.categories-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.category-item-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  height: 250px;
+  text-decoration: none;
+}
+
+.category-image-container {
+  width: 100%;
+  height: 100%;
+}
+
+.category-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.5s;
+}
+
+.category-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.9), transparent);
+  display: flex;
+  align-items: flex-end;
+  padding: 1.5rem;
+}
+
+.category-overlay h3 {
+  color: #fff;
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.category-item-card:hover img {
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .hero-subtitle {
+    font-size: 1.1rem;
+    margin-top: -1.5rem;
+  }
+}
+
+/* Single Post Styles */
+.single-post-container {
+  max-width: 900px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+}
+
+.post-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.post-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin: 1.5rem 0;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.post-meta {
+  color: #94a3b8;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  font-size: 0.9rem;
+}
+
+.post-hero {
+  margin-bottom: 3rem;
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.post-hero-image {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  transition: 0.5s;
+}
+
+.post-hero:hover .post-hero-image {
+  transform: scale(1.02);
+}
+
+.post-content {
+  font-size: 1.25rem;
+  line-height: 2;
+  color: #cbd5e1;
+}
+
+.post-description {
+  font-size: 1.4rem;
+  color: #fff;
+  font-weight: 400;
+  margin-bottom: 2rem;
+}
+
+.post-footer {
+  margin-top: 5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--glass-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.post-tags {
+  display: flex;
+  gap: 1rem;
+}
+
+.post-tags span {
+  background: var(--social-bg);
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+.back-link {
+  color: #a855f7;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.back-link:hover {
+  color: #ec4899;
+  transform: translateX(-5px);
+}
+
+.back-btn {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 12px;
+  cursor: pointer;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition-smooth);
+  margin-bottom: 2rem;
+}
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(-5px);
+  border-color: #a855f7;
+}
+
+.back-btn span {
+  font-size: 1.2rem;
+}
+
+.back-link-btn {
+  background: none;
+  border: none;
+  color: #a855f7;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+  padding: 0;
+}
+
+.back-link-btn:hover {
+  color: #ec4899;
+  transform: translateX(-5px);
+}
+
+.post-error {
+  text-align: center;
+  padding: 5rem;
+}
+
+@media (max-width: 768px) {
+  .post-title {
+    font-size: 2.5rem;
+  }
+  .post-hero-image {
+    height: 300px;
+  }
+  .post-meta {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
