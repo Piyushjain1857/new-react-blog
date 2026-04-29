@@ -9,10 +9,14 @@ const Hollywood = () => {
             <h1 className="Hollywood-title">Hollywood</h1>
             {HollywoodData.map((Hollywood) => (
                 <div key={Hollywood.id} className="Hollywood-card">
-                    <h2 className="Hollywood-card-title">{Hollywood.title}</h2>
-                    <img className="Hollywood-image" src={Hollywood.img_url} alt={Hollywood.title} />
-                    <p className="Hollywood-description">{Hollywood.description}</p>
-                    <Link to={`/post/${Hollywood.id}`} className="read-more">Read More →</Link>
+                    <div className="Hollywood-card-content">
+                        <h2 className="Hollywood-card-title">{Hollywood.title}</h2>
+                        <p className="Hollywood-description">{Hollywood.description}</p>
+                        <Link to={`/post/${Hollywood.id}`} className="read-more">Read More →</Link>
+                    </div>
+                    <div className="Hollywood-card-image-wrapper">
+                        <img className="Hollywood-image" src={Hollywood.img_url} alt={Hollywood.title} />
+                    </div>
                 </div>
             ))}
         </div>

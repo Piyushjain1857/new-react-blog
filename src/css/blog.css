@@ -121,16 +121,37 @@ ul li a:hover::after {
 .Fitness-card,
 .Food-card {
   display: grid;
-  grid-template-columns: 400px 1fr;
-  gap: 2rem;
+  grid-template-columns: 1fr 500px;
+  gap: 0;
   background: var(--glass-bg);
   backdrop-filter: blur(4px);
   border: 1px solid var(--glass-border);
   border-radius: 24px;
-  padding: 1.5rem;
+  min-height: 350px;
   transition: var(--transition-smooth);
   overflow: hidden;
   position: relative;
+  padding: 0;
+}
+
+.bollywood-card-content,
+.Technology-card-content,
+.Hollywood-card-content,
+.Fitness-card-content,
+.Food-card-content {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bollywood-card-image-wrapper,
+.Technology-card-image-wrapper,
+.Hollywood-card-image-wrapper,
+.Fitness-card-image-wrapper,
+.Food-card-image-wrapper {
+  width: 100%;
+  height: 100%;
 }
 
 .bollywood-card:hover,
@@ -151,9 +172,9 @@ ul li a:hover::after {
 .Fitness-image,
 .Food-image {
   width: 100%;
-  height: 280px;
+  height: 100%;
   object-fit: cover;
-  border-radius: 16px;
+  object-position: top;
   transition: var(--transition-smooth);
 }
 
@@ -195,6 +216,7 @@ ul li a:hover::after {
 
 /* Responsive Design */
 @media (max-width: 1024px) {
+
   .bollywood-card,
   .Technology-card,
   .Hollywood-card,
@@ -202,7 +224,7 @@ ul li a:hover::after {
   .Food-card {
     grid-template-columns: 1fr;
   }
-  
+
   .bollywood-image,
   .Technology-image,
   .Hollywood-image,
@@ -213,6 +235,7 @@ ul li a:hover::after {
 }
 
 @media (max-width: 768px) {
+
   .bollywood-title,
   .Technology-title,
   .Hollywood-title,
@@ -220,7 +243,7 @@ ul li a:hover::after {
   .Food-title {
     font-size: 2.5rem;
   }
-  
+
   ul {
     flex-wrap: wrap;
     gap: 1rem;
@@ -287,6 +310,7 @@ ul li a:hover::after {
   width: 100%;
   height: 200px;
   object-fit: cover;
+  object-position: top;
 }
 
 .featured-content {
@@ -419,123 +443,247 @@ ul li a:hover::after {
   margin-bottom: 3rem;
   border-radius: 32px;
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .post-hero-image {
   width: 100%;
   height: 500px;
   object-fit: cover;
+  object-position: top;
+  transition: 0.5s;
+  display: block;
+}
+
+/* More From The Siren Section */
+.more-from-siren {
+  margin-top: 6rem;
+  padding-top: 4rem;
+  border-top: 1px solid var(--glass-border);
+}
+
+.more-posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.more-post-card {
+  text-decoration: none;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+}
+
+.more-post-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(168, 85, 247, 0.4);
+  box-shadow: var(--card-shadow);
+}
+
+.more-post-image-wrapper {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.more-post-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
   transition: 0.5s;
 }
 
-.post-hero:hover .post-hero-image {
-  transform: scale(1.02);
+.more-post-card:hover .more-post-image {
+  transform: scale(1.1);
 }
 
-.post-content {
-  font-size: 1.25rem;
-  line-height: 2;
-  color: #cbd5e1;
+.more-post-content {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.post-description {
-  font-size: 1.4rem;
+.more-post-title {
+  font-size: 1.3rem;
   color: #fff;
-  font-weight: 400;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-.post-footer {
-  margin-top: 5rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--glass-border);
+.more-post-meta {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.post-tags {
-  display: flex;
-  gap: 1rem;
-}
-
-.post-tags span {
-  background: var(--social-bg);
-  padding: 0.4rem 1rem;
-  border-radius: 50px;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: #94a3b8;
 }
 
-.back-link {
-  color: #a855f7;
-  font-weight: 600;
-  transition: 0.3s;
-}
-
-.back-link:hover {
-  color: #ec4899;
-  transform: translateX(-5px);
-}
-
-.back-btn {
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  color: #fff;
-  padding: 0.6rem 1.2rem;
-  border-radius: 12px;
-  cursor: pointer;
-  font-family: 'Outfit', sans-serif;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: var(--transition-smooth);
-  margin-bottom: 2rem;
-}
-
-.back-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
-  transform: translateX(-5px);
-  border-color: #a855f7;
-}
-
-.back-btn span {
-  font-size: 1.2rem;
-}
-
-.back-link-btn {
-  background: none;
-  border: none;
-  color: #a855f7;
-  font-family: 'Outfit', sans-serif;
-  font-weight: 600;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: 0.3s;
-  padding: 0;
-}
-
-.back-link-btn:hover {
-  color: #ec4899;
-  transform: translateX(-5px);
-}
-
-.post-error {
-  text-align: center;
-  padding: 5rem;
+.more-post-category {
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 @media (max-width: 768px) {
   .post-title {
     font-size: 2.5rem;
   }
+
   .post-hero-image {
-    height: 300px;
+    max-height: 350px;
   }
+
   .post-meta {
     flex-direction: column;
     gap: 0.5rem;
   }
+
+  .more-from-siren {
+    margin-top: 4rem;
+    padding-top: 2rem;
+  }
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
+  transition: var(--transition-smooth);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.theme-toggle-btn:hover {
+  background: var(--primary-gradient);
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: var(--card-shadow);
+}
+
+body.light .theme-toggle-btn {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #0f172a;
+}
+
+body.light .theme-toggle-btn:hover {
+  background: var(--primary-gradient);
+  color: #fff;
+}
+
+/* Light Mode Overrides */
+body.light {
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+body.light .navbar-container {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.light .nav-brand a {
+  color: #0f172a;
+}
+
+body.light ul li a {
+  color: #64748b;
+}
+
+body.light ul li a:hover {
+  color: #0f172a;
+}
+
+body.light .bollywood-card,
+body.light .Technology-card,
+body.light .Hollywood-card,
+body.light .Fitness-card,
+body.light .Food-card,
+body.light .featured-card {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+body.light .bollywood-card-title,
+body.light .Technology-card-title,
+body.light .Hollywood-card-title,
+body.light .Fitness-card-title,
+body.light .Food-card-title,
+body.light .featured-card-title,
+body.light .post-title,
+body.light .section-title {
+  color: #0f172a;
+}
+
+body.light .bollywood-description,
+body.light .Technology-description,
+body.light .Hollywood-description,
+body.light .Fitness-description,
+body.light .Food-description,
+body.light .featured-description,
+body.light .hero-subtitle,
+body.light .post-meta,
+body.light .more-post-meta,
+body.light .post-description,
+body.light .post-content p {
+  color: #475569;
+}
+
+/* Additional Light Mode Overrides */
+body.light .more-post-card {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+body.light .more-post-title {
+  color: #0f172a;
+}
+
+/* Post Tags Styling */
+.post-tags {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.post-tags span {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  padding: 0.3rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: #94a3b8;
+}
+
+body.light .post-tags span {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #475569;
 }

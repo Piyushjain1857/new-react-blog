@@ -9,10 +9,14 @@ const Technology = () => {
             <h1 className="Technology-title">Technology</h1>
             {TechnologyData.map((Technology) => (
                 <div key={Technology.id} className="Technology-card">
-                    <h2 className="Technology-card-title">{Technology.title}</h2>
-                    <img className="Technology-image" src={Technology.img_url} alt={Technology.title} />
-                    <p className="Technology-description">{Technology.description}</p>
-                    <Link to={`/post/${Technology.id}`} className="read-more">Read More →</Link>
+                    <div className="Technology-card-content">
+                        <h2 className="Technology-card-title">{Technology.title}</h2>
+                        <p className="Technology-description">{Technology.description}</p>
+                        <Link to={`/post/${Technology.id}`} className="read-more">Read More →</Link>
+                    </div>
+                    <div className="Technology-card-image-wrapper">
+                        <img className="Technology-image" src={Technology.img_url} alt={Technology.title} />
+                    </div>
                 </div>
             ))}
         </div>

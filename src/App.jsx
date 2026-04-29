@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useContext } from 'react'
 import { BrowserRouter, Route, Routes, Link } from 'react-router-dom'
 import './App.css'
 import './css/blog.css'
@@ -9,13 +9,19 @@ import Hollywood from './components/Hollywood'
 import Home from './components/Home'
 import Technology from './components/Technology'
 import Navbar from './components/Navbar'
-import Post from './components/Post'
 import Details from './components/Details'
+import { ThemeContext } from './contexts/ThemeContext.jsx';
 
 
 const App = () => {
+  const {theme} = useContext(ThemeContext);
+
+  useEffect(() => {
+    document.body.className = theme;
+  }, [theme]);
+
   return (
-    <div>
+    <div className={`app-container ${theme}`}>
       <BrowserRouter>
 
         <Navbar />

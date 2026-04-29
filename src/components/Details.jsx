@@ -1,12 +1,13 @@
 import React from 'react'
 import { useNavigate, useParams, Link } from 'react-router-dom'
-import Data from '../Data'
+import Data from '../Data.js'
 
 const Details = () => {
     const { id } = useParams()
     const navigate = useNavigate();
 
-    const post = Data.find((item) => item.id === parseInt(id))
+    // Find current post
+    const post = Data ? Data.find((item) => item.id === parseInt(id)) : null
 
     if (!post) {
         return (
@@ -19,9 +20,9 @@ const Details = () => {
 
     return (
         <div className="single-post-container">
-            <button className="back-btn" onClick={() => navigate(-1)}>
+            <a className="back-btn read-more " onClick={() => navigate(-1)}>
                 <span>←</span> Back
-            </button>
+            </a>
             
             <header className="post-header">
                 <span className="category-tag">{post.category}</span>
@@ -39,7 +40,7 @@ const Details = () => {
             <article className="post-content">
                 <p className="post-description">{post.description}</p>
                 
-                <p>Detailed insights and further information about {post.title} will be explored here. This section contains the core narrative and supporting details that make this story unique and engaging for our readers.</p>
+                <p>This story dives deep into the heart of {post.category}, exploring the nuances that make it such a compelling topic. From its cultural impact to its technical execution, {post.title} stands as a testament to the creativity and passion of those involved.</p>
                 
                 <div className="post-footer">
                     <div className="post-tags">
@@ -47,9 +48,12 @@ const Details = () => {
                         <span>#{post.category.toLowerCase()}</span>
                         <span>#featured</span>
                     </div>
-                    <button className="back-link-btn" onClick={() => navigate(-1)}>← Back to List</button>
                 </div>
             </article>
+
+            <div style={{ textAlign: 'center', marginTop: '3rem' }}>
+                <a className="read-more" onClick={() => navigate(-1)}>← Back to List</a>
+            </div>
         </div>
     )
 }
